@@ -271,7 +271,7 @@ function teachTrick(trick) {
     Save the result to a variable called 'teachStay'.
 */
 
-let teachStay = teachTrick.bind(fido, stay)
+let teachStay = teachTrick.bind(fido, 'stay')
 
 
 ////////////////////PROBLEM 14////////////////////
@@ -303,7 +303,13 @@ function dogIntro(treat, toy) {
     Those values should come from the function's parameters: brand, model, storage, color, sold (in order).
 */
 
-//CODE HERE
+function Phone(brand, model, storage, color, sold) {
+    this.brand = brand;
+    this.model = model;
+    this.storage = storage;
+    this.color = color;
+    this.sold = sold;
+};
 
 
 /*
@@ -318,11 +324,11 @@ function dogIntro(treat, toy) {
 */
 
 //CODE HERE
-  // let phone1 = 
+let phone1 = new Phone('Apple', 'iPhone 1', 8, 'gray', false);
 
-  // let phone2 = 
+let phone2 = new Phone('Samsung', 'Galaxy', 8, 'black', false);
 
-  // let phone3 = 
+let phone3 = new Phone('Motorola', 'Razr', 1, 'blue', false);
 
 /*
     Last, add a prototype method to Phone.
@@ -332,5 +338,11 @@ function dogIntro(treat, toy) {
     Don't forget about the context of BRAND and MODEL.
 */
 
-//CODE HERE
+Phone.prototype.sell = function (phone) {
+    phone.sold = true
+    return `${this.brand} ${this.model} has been sold`
+}
+
+Phone.prototype.sell(phone1);
+console.log(phone1)
 
