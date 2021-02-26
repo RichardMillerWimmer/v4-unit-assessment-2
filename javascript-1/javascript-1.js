@@ -76,7 +76,8 @@ let compareNums = (num1, num2) => {
     we would expect the function to return 'Sharknado is the best movie ever!'
 */
 
-const bestMovie = (movieTitle) => `${movieTitle} is the best movie ever!`;
+let bestMovie = (movie) => `${movie} is the best movie ever!`;
+bestMovie('Sharknado');
 
 
 ////////////////////PROBLEM 6////////////////////
@@ -171,14 +172,26 @@ const classes = [
     all online classes with no homework.
 */
 
-// for (let i = 0; i < classes.length; i++) {
-//     for (let key in object) {
-//         if (object.key === true) {
-//             object.key = false
+
+for (let i = 0; i < classes.length; i++) {
+    for (let key in classes) {
+        classes[key] === true ? classes[key] = false : null
+    }
+};
+
+// function loopOverClasses(object) {
+//     for (let i = 0; i < object.length; i++) {
+//         for (let key in object) {
+//             object[key] === true ? object[key] = false : null
+//             // if (classes[i] === true) {
+//             //     classes[key] = false
+//             // }
 //         }
 //     }
 // };
-// console.log(classes)
+// loopOverClasses(classes)
+// 
+console.log(classes)
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -262,8 +275,12 @@ const fidoSpeak = bark.call(fido);
 */
 
 function teachTrick(trick) {
-    this.trick.push(trick)
+    this.tricks.push(trick)
+    // return this.trinks
+    // console.log(this.trick)
 };
+console.log(fido)
+
 
 
 /*
@@ -271,7 +288,9 @@ function teachTrick(trick) {
     Save the result to a variable called 'teachStay'.
 */
 
+
 let teachStay = teachTrick.bind(fido, 'stay')
+console.log(fido)
 
 
 ////////////////////PROBLEM 14////////////////////
@@ -283,7 +302,8 @@ let teachStay = teachTrick.bind(fido, 'stay')
 */
 
 function dogIntro(treat, toy) {
-    return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}`
+    // return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}`
+    console.log(`${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`)
 }
 
 
@@ -292,6 +312,11 @@ function dogIntro(treat, toy) {
     with 'chicken' as the treat and 'tennis ball' as the toy
     and save the result to a variable called fidoIntro.
 */
+
+const fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball']);
+
+console.log(fidoIntro)
+
 
 
 
@@ -344,5 +369,6 @@ Phone.prototype.sell = function (phone) {
 }
 
 Phone.prototype.sell(phone1);
-console.log(phone1)
+// console.log(phone1)
+// console.log(Phone.prototype.sell(phone1))
 

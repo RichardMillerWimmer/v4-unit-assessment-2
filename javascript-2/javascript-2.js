@@ -36,7 +36,7 @@ let foods = [
 */
 
 foods.forEach((elem) => {
-  let calories = elem['carb'] * 4 + elem['protein'] * 4 + elem['fat'] * 8
+  calories = elem['carb'] * 4 + elem['protein'] * 4 + elem['fat'] * 9
   return foods.calories
 });
 
@@ -83,9 +83,12 @@ const products = [
   Save the copy to a new variable called 'saleProducts'.
 */
 
+
 const saleProducts = products.map(elem => {
   return elem['price'] * 0.75
 });
+// console.log(saleProducts)
+// console.log(products)
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -96,8 +99,9 @@ const saleProducts = products.map(elem => {
 */
 
 const blueProducts = saleProducts.filter(elem => {
-  elem['color'] === 'blue'
+  return elem['color'] === 'blue'
 })
+// console.log(blueProducts)
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -109,6 +113,7 @@ const blueProducts = saleProducts.filter(elem => {
 const orderTotal = blueProducts.reduce((acc, curr) => {
   return acc['price'] + curr['price']
 });
+// console.log(orderTotal)
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -260,7 +265,20 @@ const userInfo = {
       - create at least 2 kid objects
 */
 
-//CODE HERE
+const person = {
+  name: 'rich',
+  age: 33,
+  jobs: ['yard work', 'dishes', 'firewood'],
+  birthday: function () {
+    this.age += 1
+  },
+  favorites: {
+    color: gray,
+    number: 8,
+    book: 'All Quite',
+    kids: [{ name: 'Addie', age: 1 }, { name: 'Otto', age: 0 }],
+  }
+}
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -283,10 +301,10 @@ const workout = {
   },
 }
 
-//let context1 = myFunc
-//let context1 = window
-//let context1 = global
-// let context1 = workout
+// let context1 = myFunc
+// let context1 = window
+// let context1 = global
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -298,7 +316,7 @@ function myFunc() {
   return this
 }
 
-//let context2 = myFunc
-// let context2 = window
-//let context2 = global
+// let context2 = myFunc
+let context2 = window
+// let context2 = global
 //let context2 = workout
