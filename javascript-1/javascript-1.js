@@ -248,7 +248,6 @@ let fido = new Dog('Fido', 3, 'Jack Russell', ['sit', 'shake'])
 function bark() {
     return `${this.name} says bark!`
 }
-console.log(bark.call({ name: 'rich' }))
 
 
 /*

@@ -122,7 +122,7 @@ const blueProducts = saleProducts.filter(elem => {
 const orderTotal = blueProducts.reduce((acc, curr) => {
   return acc + curr.price
 }, 0);
-console.log(orderTotal)
+// console.log(orderTotal)
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
