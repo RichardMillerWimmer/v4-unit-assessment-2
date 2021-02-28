@@ -35,10 +35,12 @@ let foods = [
   and then adding the results together. 
 */
 
-foods.forEach((elem) => {
-  calories = elem['carb'] * 4 + elem['protein'] * 4 + elem['fat'] * 9
-  return foods.calories
+foods.forEach((elem, index,) => {
+  elem.calories = elem.carbs * 4 + elem.protein * 4 + elem.fat * 9
+  return foods
 });
+
+// console.log(foods)
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -83,10 +85,17 @@ const products = [
   Save the copy to a new variable called 'saleProducts'.
 */
 
+// let saleProducts = products.map(elem => {
+//   return elem['price'] * 0.75
+// })
 
-const saleProducts = products.map(elem => {
-  return elem['price'] * 0.75
-});
+
+const saleProducts = products.map((elem) => {
+  elem.price = elem.price * 0.75;
+  return elem;
+})
+
+
 // console.log(saleProducts)
 // console.log(products)
 
@@ -99,7 +108,7 @@ const saleProducts = products.map(elem => {
 */
 
 const blueProducts = saleProducts.filter(elem => {
-  return elem['color'] === 'blue'
+  return elem.color.includes('blue')
 })
 // console.log(blueProducts)
 
@@ -111,9 +120,9 @@ const blueProducts = saleProducts.filter(elem => {
 */
 
 const orderTotal = blueProducts.reduce((acc, curr) => {
-  return acc['price'] + curr['price']
-});
-// console.log(orderTotal)
+  return acc + curr.price
+}, 0);
+console.log(orderTotal)
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -143,8 +152,8 @@ const shippingInfo = {
   that combines the contactInfo and shippingInfo objects.
 */
 
-helensInfo = Object.assign({});
-helensInfo = Object.assign(contactInfo, shippingInfo)
+const helensInfo = Object.assign({}, contactInfo, shippingInfo);
+// console.log(helensInfo)
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -153,14 +162,16 @@ helensInfo = Object.assign(contactInfo, shippingInfo)
   Overwrite the name property to 'Ellen' and the email address to 'ellen@email.com'.
 */
 
-const ellensInfo = { ...helensInfo };
+const ellensInfo = { ...helensInfo, ...{ name: 'Ellen', email: 'ellen@email.com' } };
+// ellensInfo = { name: 'Ellen', email: 'ellen@gmail.com' }
+// console.log(ellensInfo)
 
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
-//CODE HERE
+const { email } = ellensInfo;
 
 ////////////////////PROBLEM 8////////////////////
 /*
@@ -168,7 +179,7 @@ const ellensInfo = { ...helensInfo };
   from shippingInfo to new variables using destructuring.
 */
 
-//CODE HERE
+const { zipCode, state } = shippingInfo
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -230,7 +241,7 @@ const userInfo = {
   using dot notation.
 */
 
-//CODE HERE
+const shouldAlert = userInfo.settings.alerts;
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -238,7 +249,7 @@ const userInfo = {
   using dot and/or bracket notation.
 */
 
-//CODE HERE
+const topic = userInfo.topics[3]
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -246,7 +257,7 @@ const userInfo = {
   gn@rly_c0der_007's 2nd comment using dot/bracket notation.
 */
 
-//CODE HERE
+const commenterId = userInfo.comments[1].responses[0].userId;
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -265,7 +276,7 @@ const userInfo = {
       - create at least 2 kid objects
 */
 
-const person = {
+let person = {
   name: 'rich',
   age: 33,
   jobs: ['yard work', 'dishes', 'firewood'],
@@ -273,11 +284,21 @@ const person = {
     this.age += 1
   },
   favorites: {
-    color: gray,
+    color: 'gray',
     number: 8,
     book: 'All Quite',
-    kids: [{ name: 'Addie', age: 1 }, { name: 'Otto', age: 0 }],
-  }
+  },
+  kids: [
+    {
+      name: 'Addie',
+      age: 1
+    },
+    {
+      name: 'Otto',
+      age: 0
+    }
+  ],
+
 }
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////

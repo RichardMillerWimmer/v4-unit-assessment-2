@@ -174,24 +174,16 @@ const classes = [
 
 
 for (let i = 0; i < classes.length; i++) {
-    for (let key in classes) {
-        classes[key] === true ? classes[key] = false : null
+    let object = classes[i]
+    for (let key in object) {
+        if (object[key] === true) {
+            object[key] = false
+        }
     }
 };
 
-// function loopOverClasses(object) {
-//     for (let i = 0; i < object.length; i++) {
-//         for (let key in object) {
-//             object[key] === true ? object[key] = false : null
-//             // if (classes[i] === true) {
-//             //     classes[key] = false
-//             // }
-//         }
-//     }
-// };
-// loopOverClasses(classes)
-// 
-console.log(classes)
+
+// console.log(classes)
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -253,9 +245,10 @@ let fido = new Dog('Fido', 3, 'Jack Russell', ['sit', 'shake'])
     NAME will come from that context, so you should reference 'this.name' to get the correct name.
 */
 
-function bark(name) {
+function bark() {
     return `${this.name} says bark!`
 }
+console.log(bark.call({ name: 'rich' }))
 
 
 /*
@@ -276,10 +269,11 @@ const fidoSpeak = bark.call(fido);
 
 function teachTrick(trick) {
     this.tricks.push(trick)
-    // return this.trinks
-    // console.log(this.trick)
+    // console.log(this.tricks)
+    return this.tricks
 };
-console.log(fido)
+// console.log(fido)
+// console.log(teachTrick.call(fido, 'stay'))
 
 
 
@@ -290,7 +284,8 @@ console.log(fido)
 
 
 let teachStay = teachTrick.bind(fido, 'stay')
-console.log(fido)
+// console.log(teachStay())
+
 
 
 ////////////////////PROBLEM 14////////////////////
@@ -302,8 +297,8 @@ console.log(fido)
 */
 
 function dogIntro(treat, toy) {
-    // return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}`
-    console.log(`${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`)
+    return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`
+    // console.log(`${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`)
 }
 
 
@@ -315,7 +310,7 @@ function dogIntro(treat, toy) {
 
 const fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball']);
 
-console.log(fidoIntro)
+// console.log(fidoIntro)
 
 
 
@@ -363,12 +358,15 @@ let phone3 = new Phone('Motorola', 'Razr', 1, 'blue', false);
     Don't forget about the context of BRAND and MODEL.
 */
 
-Phone.prototype.sell = function (phone) {
-    phone.sold = true
-    return `${this.brand} ${this.model} has been sold`
+Phone.prototype.sell = function () {
+    if (this.sold = true) {
+        // console.log(`${this.brand} ${this.model} has been sold.`)
+        return `${this.brand} ${this.model} has been sold.`
+    }
 }
 
-Phone.prototype.sell(phone1);
-// console.log(phone1)
+phone1.sell()
+// Phone.prototype.sell();
+console.log(phone1)
 // console.log(Phone.prototype.sell(phone1))
 
